@@ -11,6 +11,6 @@ public class Vnychka extends RepMashin {
 
     @Override
     protected String PrintPerson() {
-        return null;
+        return this.getClass().getSimpleName();
     }
 }

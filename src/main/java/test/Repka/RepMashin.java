@@ -8,56 +8,30 @@ import java.util.List;
  */
 public abstract class RepMashin implements Work {
 
+    private static Mass mas;
 
-
-private RepMashin repMashin;
 
     public void print() {
        repkaToString();
     }
 
-    public RepMashin() {
-    }
-
-    public void repkaToString()
+    public static void repkaToString()
     {
-        for (Object ma : mas) {
+        for (Object ma : mas.getMas()) {
             if (ma instanceof RepMashin)
             {
-                System.out.println(((RepMashin) ma).PrintPerson()+" za ");
+                System.out.print(((RepMashin) ma).PrintPerson()+" za ");
             }
         }
     }
     public static Object addPerson(Object o) {
 
-        if (mas==null)
-            mas=new ArrayList<Object>();
-
        if (o instanceof RepMashin)
        {
-           mas.add(o);
+           mas.getMas().add((RepMashin)o);
        }
        return o;
     }
 
     protected abstract String PrintPerson();
-
-    private static class Mas
-    {
-        private static List<Object> mas;
-
-        public Mas() {
-            mas=new ArrayList<Object>();
-        }
-
-        public static List<Object> getMas() {
-            return mas;
-        }
-
-        public static void setMas(List<Object> mas) {
-            Mas.mas = mas;
-        }
-
-
-    }
 }
