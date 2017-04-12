@@ -7,6 +7,9 @@ import test.Repka.RepMashin;
  */
 public class Babka extends RepMashin {
 
+    public Babka() {
+    }
+
     @Override
     protected String PrintPerson() {
         return this.getClass().getSimpleName();
