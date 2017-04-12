@@ -8,23 +8,29 @@ import java.util.List;
  * Created by Юра on 11.04.2017.
  */
 public abstract class RepMashin implements Work {
-
-    private static List<RepMashin> mas;
-
-    public static List<RepMashin> getMas() {
-        return mas;
-    }
-
-    public static void setMas(List<RepMashin> mas) {
-        RepMashin.mas = mas;
-    }
-
     static {
         mas = new ArrayList<RepMashin>();
     }
 
+    private static List<RepMashin> mas;
+
+    public  List<RepMashin> getMas() {
+        return mas;
+    }
+
+    public  void setMas(List<RepMashin> mas) {
+        RepMashin.mas = mas;
+    }
+
+
+
     public String print() {
-        return "RepMashin: "+PrintPerson();
+
+        for (int j = 0; j < mas.size(); j++) {
+            if (mas.get(j).equals(this)) break;
+            else  System.out.println( "RepMashin: "+mas.get(j).PrintPerson());
+        }
+        return PrintPerson();
     }
 
     public static String repkaToString() {

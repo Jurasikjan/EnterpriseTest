@@ -14,4 +14,5 @@ public class Babka extends RepMashin {
     protected String PrintPerson() {
         return this.getClass().getSimpleName();
     }
+
 }
