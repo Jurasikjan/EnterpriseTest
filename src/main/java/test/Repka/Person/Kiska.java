@@ -12,6 +12,6 @@ public class Kiska extends RepMashin {
     @Override
 
     protected String PrintPerson() {
-        return null;
+        return this.getClass().getSimpleName();
     }
 }

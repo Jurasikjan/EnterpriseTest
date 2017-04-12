@@ -8,9 +8,10 @@ import java.util.List;
  */
 public abstract class RepMashin implements Work {
 
-    private static Mass mas;
-
-
+    private static List<RepMashin> mas;
+static {
+    mas=new ArrayList<RepMashin>();
+}
     public void print() {
        repkaToString();
     }
@@ -18,7 +19,7 @@ public abstract class RepMashin implements Work {
     public static String repkaToString()
     {
         StringBuffer str=new StringBuffer();
-        for (Object ma : mas.getMas()) {
+        for (Object ma : mas) {
             if (ma instanceof RepMashin)
             {
                 str.append(((RepMashin) ma).PrintPerson()+" za ");
@@ -26,12 +27,14 @@ public abstract class RepMashin implements Work {
         }
         return str.toString();
     }
-    public static Object addPerson(Object o) {
+    public static Object addPerson(Object... o) {
 
-       if (o instanceof RepMashin)
-       {
-           mas.getMas().add((RepMashin)o);
-       }
+        for (Object o1 : o) {
+            if (o1 instanceof RepMashin)
+            {
+                mas.add((RepMashin)o1);
+            }
+        }
        return o;
     }
 
