@@ -10,10 +10,10 @@ public class App {
     public static void main(String[] args) {
         /*Задания REPKA с ООП */
 
-        Vnychka v=new Vnychka();
-        RepMashin.addPerson(new Mouse(),new Kiska(),v,new Babka(),new Ded(),new Repka());
+        Vnychka vnychka=new Vnychka();
+        RepMashin.addPerson(new Mouse(),new Kiska(),vnychka,new Babka(),new Ded(),new Repka());
         System.out.println(RepMashin.repkaToString());
-        System.out.println(v.print());
+        System.out.println(vnychka.print());
     }
 
 

@@ -24,25 +24,25 @@ public abstract class RepMashin implements Work {
     }
 
     public String print() {
-        return PrintPerson();
+        return "RepMashin: "+PrintPerson();
     }
 
     public static String repkaToString() {
         StringBuffer str = new StringBuffer();
-        for (Object ma : mas) {
-                str.append(((RepMashin) ma).PrintPerson() + " za ");
+        for (RepMashin ma : mas) {
+                str.append(ma.PrintPerson() + " za ");
         }
         return str.toString();
     }
 
-    public static Object addPerson(Object... o) {
+    public static List<RepMashin> addPerson(RepMashin... o) {
 
-        for (Object o1 : o) {
-            if (o1 instanceof RepMashin) {
-                mas.add((RepMashin) o1);
-            }
+        for (RepMashin o1 : o) {
+
+                mas.add(o1);
+
         }
-        return o;
+        return mas;
     }
 
     protected abstract String PrintPerson();
