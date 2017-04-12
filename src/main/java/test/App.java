@@ -13,9 +13,8 @@ import java.util.Arrays;
 public class App {
     public static void main(String[] args) {
         /*Задания REPKA с ООП */
-
-        Mass m=Mass.getInstans();
-        m.setMas(new Mouse(),new Vnychka(),new Babka(),new Ded(),new Repka());
-        RepMashin.repkaToString();
+        System.out.println(new Start().started());
     }
+
+
 }

@@ -15,14 +15,16 @@ public abstract class RepMashin implements Work {
        repkaToString();
     }
 
-    public static void repkaToString()
+    public static String repkaToString()
     {
+        StringBuffer str=new StringBuffer();
         for (Object ma : mas.getMas()) {
             if (ma instanceof RepMashin)
             {
-                System.out.print(((RepMashin) ma).PrintPerson()+" za ");
+                str.append(((RepMashin) ma).PrintPerson()+" za ");
             }
         }
+        return str.toString();
     }
     public static Object addPerson(Object o) {
 
