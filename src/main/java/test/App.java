@@ -14,9 +14,8 @@ public class App {
         Vnychka vnychka=new Vnychka();
         RepMashin.addPerson(new Mouse(),new Kiska(),vnychka,new Babka(),new Ded(),new Repka());
         System.out.println(RepMashin.repkaToString());
-
         System.out.println(vnychka.print());
-        //cmd git///
+
     }
 
 
