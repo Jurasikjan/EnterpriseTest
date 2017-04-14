@@ -16,6 +16,10 @@ public class App {
         System.out.println(RepMashin.repkaToString());
         System.out.println(vnychka.print());
 
+        if(RepMashin.getMas()!=null)
+        {
+
+        }
     }
 
 
