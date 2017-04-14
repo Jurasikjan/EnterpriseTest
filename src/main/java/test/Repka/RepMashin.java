@@ -22,8 +22,6 @@ public abstract class RepMashin implements Work {
         RepMashin.mas = mas;
     }
 
-
-
     public String print() {
 
         for (int j = 0; j < mas.size(); j++) {

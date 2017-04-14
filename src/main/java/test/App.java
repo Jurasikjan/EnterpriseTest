@@ -1,7 +1,8 @@
 package test;
 
+import test.Repka.*;
 import test.Repka.Person.*;
-import test.Repka.RepMashin;
+
 
 /**
  * Created by Юра on 10.04.2017.
@@ -13,7 +14,9 @@ public class App {
         Vnychka vnychka=new Vnychka();
         RepMashin.addPerson(new Mouse(),new Kiska(),vnychka,new Babka(),new Ded(),new Repka());
         System.out.println(RepMashin.repkaToString());
+
         System.out.println(vnychka.print());
+        //cmd git
     }
 
 
