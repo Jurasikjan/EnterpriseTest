@@ -14,7 +14,7 @@ public abstract class RepMashin implements Work {
 
     private static List<RepMashin> mas;
 
-    public static   List<RepMashin> getMas() {
+    public static List<RepMashin> getMas() {
         return mas;
     }
 
