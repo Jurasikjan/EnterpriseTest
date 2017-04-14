@@ -14,11 +14,11 @@ public abstract class RepMashin implements Work {
 
     private static List<RepMashin> mas;
 
-    public  List<RepMashin> getMas() {
+    public static List<RepMashin> getMas() {
         return mas;
     }
 
-    public  void setMas(List<RepMashin> mas) {
+    public static void setMas(List<RepMashin> mas) {
         RepMashin.mas = mas;
     }
 
