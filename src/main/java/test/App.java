@@ -16,7 +16,7 @@ public class App {
         System.out.println(RepMashin.repkaToString());
 
         System.out.println(vnychka.print());
-        //cmd git
+        //cmd git///
     }
 
 
