@@ -3,6 +3,7 @@ package Connect;
 import Connect.Moddel.Genre;
 import Connect.Moddel.Klient;
 import Connect.Moddel.Movie;
+import Connect.Moddel.Sessions;
 import Connect.Repka.RepMashin;
 import Connect.datasource.DataSource;
 import Connect.helper.PropertyHolder;
@@ -22,11 +23,12 @@ public class App {
     public static void main(String[] args) {
 
 
-        DataSource dataSource =RepMashin.startData();
+        RepMashin.startData();
 
         Movie movie=new Movie();
         Klient klient=new Klient();
-        RepMashin.addObject(movie,klient);
+        Sessions sessions=new Sessions();
+        RepMashin.addObject(movie,klient,sessions);
 
        List<Movie> movieList= RepMashin.getList("Movie");
        List<Klient> klients= RepMashin.getList("Klient");
@@ -35,6 +37,8 @@ public class App {
         System.out.println(Arrays.toString(klients.toArray()));
 
 
+        System.out.println(movie.getPoID(1));
+        System.out.println(klient.getPoID(1));
     }
 
 }

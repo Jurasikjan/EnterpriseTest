@@ -12,7 +12,9 @@ import java.util.List;
 @Data
 public class Movie extends RepMashin{
     public static final String SELECT_ALL = "Select * from Movie";
+    public static final String SELECT_PoId = "Select * from Movie where id=%d";
 
+    private  List<Movie> result;
 private int id;
     private String title;
     private String description;
@@ -50,10 +52,22 @@ private int id;
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return result;
     }
+
+    @Override
+    public RepMashin getPoID(int id) {
+        Movie ret = null;
+        for (Movie movie : result) {
+            if (movie.getId()==id)
+                 ret=movie;
+        }
+        return ret;
+    }
+
     public List<Movie> getAll(ResultSet resultSet) throws SQLException {
-        List<Movie> result = new ArrayList<Movie>();
+       result = new ArrayList<>();
         Movie movie = null;
         while (resultSet.next()) {
             movie = new Movie();
@@ -62,7 +76,6 @@ private int id;
             movie.setDescription(resultSet.getString("description"));
             movie.setDuration(Long.valueOf(resultSet.getString("duration")));
             movie.setRating(Double.valueOf(resultSet.getString("rating")));
-
             String s = resultSet.getString("genre");
             if (s.equals("BLOCKBUSTER")) {
                 movie.setGenre(Genre.BLOCKBUSTER);

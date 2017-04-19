@@ -5,20 +5,17 @@ package Connect.Moddel;
  */
 
 import Connect.Repka.RepMashin;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
+import lombok.Data;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-@ToString
-@Setter
-@Getter
+@Data
 public class Klient extends RepMashin {
     public static final String SELECT_ALL = "Select * from Klient";
+    private List<Klient> result;
+
     private int id;
     private String fname;
     private String Lname;
@@ -79,20 +76,33 @@ public class Klient extends RepMashin {
         try (Connection connection = getConnect();
              PreparedStatement preparedStatement = connection.prepareStatement(sql);
              ResultSet resultSet = preparedStatement.executeQuery()){
-            result = getAll(resultSet);
+
+                result = getAll(resultSet);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return result;
 
     }
+
+    @Override
+    public RepMashin getPoID(int id) {
+        Klient ret = null;
+
+        for (Klient klient : result) {
+            if (klient.getId()==id)
+                ret=klient;
+        }
+        return ret;
+    }
+
     public List<Klient> getAll(ResultSet resultSet) throws SQLException {
-        List<Klient> result = new LinkedList<>();
+       result = new LinkedList<>();
         Klient user = null;
 
         while (resultSet.next()) {
             user = new Klient();
-            //fname,lname,login,pswd,birthday,role,email,sex,tickets
             user.setId(resultSet.getInt("id"));
             user.setFname(resultSet.getString("fname"));
             user.setLname(resultSet.getString("lname"));
