@@ -3,6 +3,7 @@ package Connect.datasource;
 
 import Connect.Moddel.Genre;
 import Connect.Moddel.Movie;
+import Connect.Repka.DS;
 import Connect.Repka.RepMashin;
 import Connect.helper.PropertyHolder;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public final class DataSource extends RepMashin {
+public final class DataSource implements DS {
 
     private static ComboPooledDataSource poolConnections;
     private static DataSource dataSource;
@@ -61,41 +62,11 @@ public final class DataSource extends RepMashin {
     }
 
 
-    public List<Movie> getAll(ResultSet resultSet) throws SQLException {
-        List<Movie> result = new ArrayList<Movie>();
-        Movie movie = null;
-        while (resultSet.next()) {
-            movie = new Movie();
-            movie.setId(resultSet.getInt("id"));
-            movie.setTitle(resultSet.getString("title"));
-            movie.setDescription(resultSet.getString("description"));
-            movie.setDuration(Long.valueOf(resultSet.getString("duration")));
-            movie.setRating(Double.valueOf(resultSet.getString("rating")));
 
-            String s = resultSet.getString("genre");
-            if (s.equals("BLOCKBUSTER")) {
-                movie.setGenre(Genre.BLOCKBUSTER);
-
-            } else if (s.equals("MYLTIK")) {
-                movie.setGenre(Genre.MYLTIK);
-
-            }
-
-            movie.setStart(resultSet.getDate("start"));
-
-            result.add(movie);
-        }
-        return result;
-    }
 
     @Override
-    public List<Movie> getAll() throws SQLException {
+    public DataSource update(String sqlZapros) {
+
         return null;
-    }
-
-    @Override
-    protected DataSource StartDataSource() {
-        getInstance();
-        return dataSource;
     }
 }

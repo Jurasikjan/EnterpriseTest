@@ -1,6 +1,7 @@
 package Connect;
 
 import Connect.Moddel.Genre;
+import Connect.Moddel.Klient;
 import Connect.Moddel.Movie;
 import Connect.Repka.RepMashin;
 import Connect.datasource.DataSource;
@@ -20,14 +21,18 @@ public class App {
 
     public static void main(String[] args) {
 
-      DataSource dataSource= DataSource.getInstance();
-        DataSource.addPerson(dataSource);
 
+        DataSource dataSource =RepMashin.startData();
 
-        for (RepMashin repMashin : DataSource.getMas()) {
-            System.out.println(Arrays.toString(repMashin.instans().toArray()));
-        }
+        Movie movie=new Movie();
+        Klient klient=new Klient();
+        RepMashin.addObject(movie,klient);
 
+       List<Movie> movieList= RepMashin.getList("Movie");
+       List<Klient> klients= RepMashin.getList("Klient");
+
+        System.out.println(Arrays.toString(movieList.toArray()));
+        System.out.println(Arrays.toString(klients.toArray()));
 
 
     }
