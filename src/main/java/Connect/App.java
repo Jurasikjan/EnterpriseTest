@@ -24,7 +24,6 @@ public class App {
 
 
         RepMashin.startData();
-
         Movie movie=new Movie();
         Klient klient=new Klient();
         Sessions sessions=new Sessions();

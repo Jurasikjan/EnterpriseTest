@@ -65,7 +65,7 @@ private int id;
         }
         return ret;
     }
-
+    @Override
     public List<Movie> getAll(ResultSet resultSet) throws SQLException {
        result = new ArrayList<>();
         Movie movie = null;
